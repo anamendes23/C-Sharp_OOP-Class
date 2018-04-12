@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentContainingCourses
 {
-    class Student
+    public class Student
     {
         //fields
         private string _firstName;
@@ -28,20 +28,24 @@ namespace StudentContainingCourses
         { get { return _lastName; } }
         public string ID
         { get { return _id; } }
+        //return a copy (as an array) of the _courseList
         public Course[] CourseList
         { get { return _courseList.ToArray(); } }
         //methods
-        public void AddCourse(Course course)
+        public bool AddCourse(Course course)
         {
             //before adding this course, make sure there are enough seats
             //to access static fields, you have to call the class instead of the object
-            if (Course._enrolled < Course._capacity)
+            if (course != null && Course._enrolled < Course._capacity)
             {
                 //add course
                 _courseList.Add(course);
-                //increment enrolled
+                //increment _enrolled
                 Course._enrolled++;
+                return true;
             }
+            else
+                return false;
         }
         public void DropCourse(string courseNumber)
         {
@@ -52,6 +56,8 @@ namespace StudentContainingCourses
             {
                 //remove from list
                 _courseList.Remove(course);
+                //decrement
+                Course._enrolled--;
             }
         }
         //helper method
