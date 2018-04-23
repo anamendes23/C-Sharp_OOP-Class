@@ -39,6 +39,9 @@
             this.btnCreateCylinder = new System.Windows.Forms.Button();
             this.btnCreateSphere = new System.Windows.Forms.Button();
             this.btnCreateCone = new System.Windows.Forms.Button();
+            this.cboShapeNames = new System.Windows.Forms.ComboBox();
+            this.btnGetSelectedShape = new System.Windows.Forms.Button();
+            this.btnComputeAvgVolAllShapes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -129,11 +132,47 @@
             this.btnCreateCone.UseVisualStyleBackColor = true;
             this.btnCreateCone.Click += new System.EventHandler(this.btnCreateCone_Click);
             // 
+            // cboShapeNames
+            // 
+            this.cboShapeNames.FormattingEnabled = true;
+            this.cboShapeNames.Items.AddRange(new object[] {
+            "Circle",
+            "Cone",
+            "Cylinder",
+            "Sphere"});
+            this.cboShapeNames.Location = new System.Drawing.Point(764, 393);
+            this.cboShapeNames.Name = "cboShapeNames";
+            this.cboShapeNames.Size = new System.Drawing.Size(211, 28);
+            this.cboShapeNames.TabIndex = 5;
+            // 
+            // btnGetSelectedShape
+            // 
+            this.btnGetSelectedShape.Location = new System.Drawing.Point(764, 447);
+            this.btnGetSelectedShape.Name = "btnGetSelectedShape";
+            this.btnGetSelectedShape.Size = new System.Drawing.Size(211, 58);
+            this.btnGetSelectedShape.TabIndex = 6;
+            this.btnGetSelectedShape.Text = "Get Selected Shape";
+            this.btnGetSelectedShape.UseVisualStyleBackColor = true;
+            this.btnGetSelectedShape.Click += new System.EventHandler(this.btnGetSelectedShape_Click);
+            // 
+            // btnComputeAvgVolAllShapes
+            // 
+            this.btnComputeAvgVolAllShapes.Location = new System.Drawing.Point(452, 467);
+            this.btnComputeAvgVolAllShapes.Name = "btnComputeAvgVolAllShapes";
+            this.btnComputeAvgVolAllShapes.Size = new System.Drawing.Size(211, 58);
+            this.btnComputeAvgVolAllShapes.TabIndex = 7;
+            this.btnComputeAvgVolAllShapes.Text = "Compute Average Volume";
+            this.btnComputeAvgVolAllShapes.UseVisualStyleBackColor = true;
+            this.btnComputeAvgVolAllShapes.Click += new System.EventHandler(this.btnComputeAvgVolAllShapes_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 552);
+            this.Controls.Add(this.btnComputeAvgVolAllShapes);
+            this.Controls.Add(this.btnGetSelectedShape);
+            this.Controls.Add(this.cboShapeNames);
             this.Controls.Add(this.btnCreateCone);
             this.Controls.Add(this.btnCreateSphere);
             this.Controls.Add(this.btnCreateCylinder);
@@ -141,6 +180,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -158,6 +198,9 @@
         private System.Windows.Forms.Button btnCreateCylinder;
         private System.Windows.Forms.Button btnCreateSphere;
         private System.Windows.Forms.Button btnCreateCone;
+        private System.Windows.Forms.ComboBox cboShapeNames;
+        private System.Windows.Forms.Button btnGetSelectedShape;
+        private System.Windows.Forms.Button btnComputeAvgVolAllShapes;
     }
 }
 

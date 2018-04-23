@@ -40,6 +40,9 @@ namespace IntroToInheritance
          * *****not necessary. Garbage collector class
          * -> DLL classes
          * */
+
+        List<Circle> circularShapes = new List<Circle>();
+        //the list can store circle objects as well as any child object of circle
         public Form1()
         {
             InitializeComponent();
@@ -47,15 +50,23 @@ namespace IntroToInheritance
             //1- windows app: add a reference to DLL
             //2- using ...
             //now Circle class can be accessed by Form1
-            Circle circle = new Circle(20.5d);
+            //Circle circle = new Circle(20.5d);
         }
         //*****************************EVENTS************************************
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //cboShapeNames.Text = "Circle";
+            //or
+            //cboShapeNames.SelectedIndex = 0;
+        }
         private void btnCreateCircle_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
             double radius = rand.Next(2, 20) + rand.NextDouble();
             //create a Circle
             Circle circle = new Circle(radius);
+            //save
+            circularShapes.Add(circle);
             //display
             Display(circle);
         }
@@ -66,6 +77,8 @@ namespace IntroToInheritance
             double height = rand.Next(3, 30) + rand.NextDouble();
             //create a Cylinder object
             Cylinder cylinder = new Cylinder(radius, height);
+            //save
+            circularShapes.Add(cylinder);
 
             //display it
             //you could and should use the Display(Circle c) method
@@ -81,6 +94,8 @@ namespace IntroToInheritance
             double radius = rand.Next(2, 20) + rand.NextDouble();
             //create a Circle
             Sphere sphere = new Sphere(radius);
+            //save
+            circularShapes.Add(sphere);
             //display
             Display(sphere);
         }
@@ -91,15 +106,41 @@ namespace IntroToInheritance
             double height = rand.Next(3, 30) + rand.NextDouble();
             //create a Cylinder object
             Cone cone = new Cone(radius, height);
+            //save
+            circularShapes.Add(cone);
             //display it
             Display(cone);
+        }
+        private void btnGetSelectedShape_Click(object sender, EventArgs e)
+        {
+            //get selected shapeName
+            string shapeName = cboShapeNames.Text;
+            //display by shape name
+            DisplayByShape(shapeName);
+        }
+        private void btnComputeAvgVolAllShapes_Click(object sender, EventArgs e)
+        {
+            //average volume of ALL the shapes
+            double avgVolume = GetAverageVolOfShapes(circularShapes);
+            //display in a message box
+            MessageBox.Show($"Average volume: {avgVolume.ToString("n3")}");
         }
         //*****************************METHODS***********************************
         //method to display a Circle object
         private void Display(Circle c)
         {
             ListViewItem lvi = null;
-            if (c is Cylinder)
+            if(c is Cone)
+            {
+                //cast c to a Cone object
+                Cone cone = (Cone)c;
+                //create a listviewitem (one row in a listview)
+                string[] item = { cone.GetType().Name, cone.Radius.ToString("f3"),
+                            cone.Height.ToString("f3"), cone.Perimeter().ToString("f3"),
+                            cone.Area().ToString("f3"), cone.Volume().ToString("f3")};
+                lvi = new ListViewItem(item);
+            }
+            else if (c is Cylinder)
             {
                 //cast c to a Cylinder object
                 Cylinder cy = (Cylinder)c;
@@ -119,16 +160,6 @@ namespace IntroToInheritance
                             s.Area().ToString("f3"), s.Volume().ToString("f3")};
                 lvi = new ListViewItem(item);
             }
-            else if (c is Cone)
-            {
-                //cast c to a Cone object
-                Cone cone = (Cone)c;
-                //create a listviewitem (one row in a listview)
-                string[] item = { cone.GetType().Name, cone.Radius.ToString("f3"),
-                            cone.Height.ToString("f3"), cone.Perimeter().ToString("f3"),
-                            cone.Area().ToString("f3"), cone.Volume().ToString("f3")};
-                lvi = new ListViewItem(item);
-            }
             else
             {
                 //create a listviewitem (one row in a listview)
@@ -143,5 +174,61 @@ namespace IntroToInheritance
             //by making the last item visible
             listView1.EnsureVisible(listView1.Items.Count - 1);
         }
+        //method that displays a given shape from the circularshapes list
+        private void DisplayByShape(string shapeName)
+        {
+            //clears the content
+            listView1.Items.Clear();
+            //sequence through the circularShapes list
+            //capture or filter in only the ones with the given shapeName
+            foreach (Circle c in circularShapes)
+            {
+                if(c.GetType().Name == shapeName)
+                { Display(c); }
+            }
+        }
+        //define a method that returns the average volume of a
+        //list of shapes
+        private double GetAverageVolOfShapes(List<Circle> shapes)
+        {
+            double totalVolume = 0;
+            foreach (Circle c in shapes)
+            {
+                if(c is Cone)
+                {
+                    //cast Circle c to Cone object co
+                    Cone co = (Cone)c;
+                    totalVolume += co.Volume();
+                }
+                else if (c is Cylinder)
+                {
+                    Cylinder cy = (Cylinder)c;
+                    totalVolume += cy.Volume();
+                }
+                else if (c is Sphere)
+                {
+                    Sphere s = (Sphere)c;
+                    totalVolume += s.Volume();
+                }
+                else
+                {
+                    totalVolume += c.Volume();
+                }
+            }
+            return totalVolume / shapes.Count;
+        }
     }
 }
+///Exercise:
+///Add a listbox with the name of all the shapes you have
+///Add a button to display (in the listview) only the selected shape from
+///the circularShapes list
+///
+///Exercise 2:
+///Add a button to compute the Average Volume
+///Define a method that take a list of shapes and returns the average volume
+///Call the method from a button and display the result in a messagebox
+///
+///Exercise 3:
+///Add button to compute the average volume of the selected shape name
+///define a method GetVolumeByShapeName
