@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AgeInterfaceLib;
 using LocationInterfaceLib;
 
-namespace Interface_Example
+namespace InterfaceExample
 {
     public partial class Form1 : Form
     {
@@ -21,21 +22,16 @@ namespace Interface_Example
         }
         private void PopulateList()
         {
-            Person p1 = new Person("David", new DateTime(1973, 2, 3));
+            AgeInterfaceLib.Person p1 = new AgeInterfaceLib.Person("David", new DateTime(1973, 2, 3));
             things.Add(p1);
-            Tree t1 = new Tree("Maple", new DateTime(1990, 4, 20));
+            AgeInterfaceLib.Tree t1 = new AgeInterfaceLib.Tree("Maple", new DateTime(1990, 4, 20));
             things.Add(t1);
-            Car c1 = new Car("Mazda", new DateTime(2010, 02, 11));
+            AgeInterfaceLib.Car c1 = new AgeInterfaceLib.Car("Mazda", new DateTime(2010, 02, 11));
             things.Add(c1);
         }
         private void BtnDisplayAll_Click(object sender, EventArgs e)
         {
-            foreach (IAge obj in things)
-            {
-                richTextBox1.AppendText(
-                                        obj.ToString() + "\t" +
-                                        obj.GetAge() + " years old" + "\n");
-            }
+
         }
     }
 }

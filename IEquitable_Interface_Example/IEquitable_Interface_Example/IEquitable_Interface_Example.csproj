@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B8E8225-EF81-4871-8892-CD3D50C951ED}</ProjectGuid>
+    <ProjectGuid>{168E7D8B-E100-4D2E-99BE-6F8C8CC281A3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Interface_Example</RootNamespace>
-    <AssemblyName>Interface_Example</AssemblyName>
+    <RootNamespace>IEquitable_Interface_Example</RootNamespace>
+    <AssemblyName>IEquitable_Interface_Example</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Box.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,16 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\InterfaceAgeLib\InterfaceAgeLib.csproj">
-      <Project>{0ee8f0f2-dd84-487c-81d3-2a9dc5301120}</Project>
-      <Name>InterfaceAgeLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LocationInterfaceLib\LocationInterfaceLib.csproj">
-      <Project>{522dd5d2-2fb6-45d1-bc22-f4bf34741e52}</Project>
-      <Name>LocationInterfaceLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

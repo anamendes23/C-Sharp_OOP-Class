@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B8E8225-EF81-4871-8892-CD3D50C951ED}</ProjectGuid>
+    <ProjectGuid>{9F9BAA88-DC13-49B7-98C3-655773B50D3C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Interface_Example</RootNamespace>
-    <AssemblyName>Interface_Example</AssemblyName>
+    <RootNamespace>InterfaceExample</RootNamespace>
+    <AssemblyName>InterfaceExample</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -79,12 +79,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InterfaceAgeLib\InterfaceAgeLib.csproj">
-      <Project>{0ee8f0f2-dd84-487c-81d3-2a9dc5301120}</Project>
-      <Name>InterfaceAgeLib</Name>
+    <ProjectReference Include="..\AgeInterfaceLib\AgeInterfaceLib.csproj">
+      <Project>{33a5c52a-1d26-41b2-8495-9c89f9a8253c}</Project>
+      <Name>AgeInterfaceLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\LocationInterfaceLib\LocationInterfaceLib.csproj">
-      <Project>{522dd5d2-2fb6-45d1-bc22-f4bf34741e52}</Project>
+      <Project>{7528cfa9-d8b4-4241-89d7-02281c8433f4}</Project>
       <Name>LocationInterfaceLib</Name>
     </ProjectReference>
   </ItemGroup>
