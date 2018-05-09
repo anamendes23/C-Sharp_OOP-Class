@@ -17,7 +17,7 @@ namespace IntroToInheritance
          * ===============
          * Deals with a class inheriting another class
          * Another term for inheriting is extending (Java uses
-         * the therm extending)
+         * the term extending)
          * 
          * if a class A inherits (or extends) class B, then 
          * name class B as the base class or the parent class and
@@ -125,6 +125,13 @@ namespace IntroToInheritance
             //display in a message box
             MessageBox.Show($"Average volume: {avgVolume.ToString("n3")}");
         }
+        private void btnGetVolumeByShapeName_Click(object sender, EventArgs e)
+        {
+            //get selected shapeName
+            string shapeName = cboShapeNames.Text;
+            double volume = GetVolumeByShapeName(circularShapes, shapeName);
+            MessageBox.Show($"Average volume for the {shapeName} is: {volume:f3}");
+        }
         //*****************************METHODS***********************************
         //method to display a Circle object
         private void Display(Circle c)
@@ -217,10 +224,44 @@ namespace IntroToInheritance
             }
             return totalVolume / shapes.Count;
         }
+
+        private double GetVolumeByShapeName(List<Circle> shapes, string shapeName)
+        {
+            double totalVolume = 0;
+            int counter = 0;
+            foreach (Circle c in shapes)
+            {
+                if (c.GetType().Name == shapeName)
+                {
+                    counter++;
+                    if (c is Cone)
+                    {
+                        //cast Circle c to Cone object co
+                        Cone co = (Cone)c;
+                        totalVolume += co.Volume();
+                    }
+                    else if (c is Cylinder)
+                    {
+                        Cylinder cy = (Cylinder)c;
+                        totalVolume += cy.Volume();
+                    }
+                    else if (c is Sphere)
+                    {
+                        Sphere s = (Sphere)c;
+                        totalVolume += s.Volume();
+                    }
+                    else
+                    {
+                        totalVolume += c.Volume();
+                    }
+                }                
+            }
+            return totalVolume / counter;
+        }
     }
 }
 ///Exercise:
-///Add a listbox with the name of all the shapes you have
+///Add a listview with the name of all the shapes you have
 ///Add a button to display (in the listview) only the selected shape from
 ///the circularShapes list
 ///

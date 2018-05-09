@@ -42,6 +42,7 @@
             this.cboShapeNames = new System.Windows.Forms.ComboBox();
             this.btnGetSelectedShape = new System.Windows.Forms.Button();
             this.btnComputeAvgVolAllShapes = new System.Windows.Forms.Button();
+            this.btnGetVolumeByShapeName = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -157,19 +158,30 @@
             // 
             // btnComputeAvgVolAllShapes
             // 
-            this.btnComputeAvgVolAllShapes.Location = new System.Drawing.Point(452, 467);
+            this.btnComputeAvgVolAllShapes.Location = new System.Drawing.Point(364, 467);
             this.btnComputeAvgVolAllShapes.Name = "btnComputeAvgVolAllShapes";
-            this.btnComputeAvgVolAllShapes.Size = new System.Drawing.Size(211, 58);
+            this.btnComputeAvgVolAllShapes.Size = new System.Drawing.Size(299, 58);
             this.btnComputeAvgVolAllShapes.TabIndex = 7;
             this.btnComputeAvgVolAllShapes.Text = "Compute Average Volume";
             this.btnComputeAvgVolAllShapes.UseVisualStyleBackColor = true;
             this.btnComputeAvgVolAllShapes.Click += new System.EventHandler(this.btnComputeAvgVolAllShapes_Click);
             // 
+            // btnGetVolumeByShapeName
+            // 
+            this.btnGetVolumeByShapeName.Location = new System.Drawing.Point(36, 467);
+            this.btnGetVolumeByShapeName.Name = "btnGetVolumeByShapeName";
+            this.btnGetVolumeByShapeName.Size = new System.Drawing.Size(300, 58);
+            this.btnGetVolumeByShapeName.TabIndex = 8;
+            this.btnGetVolumeByShapeName.Text = "Compute Average Volume by Shape";
+            this.btnGetVolumeByShapeName.UseVisualStyleBackColor = true;
+            this.btnGetVolumeByShapeName.Click += new System.EventHandler(this.btnGetVolumeByShapeName_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 552);
+            this.ClientSize = new System.Drawing.Size(1079, 552);
+            this.Controls.Add(this.btnGetVolumeByShapeName);
             this.Controls.Add(this.btnComputeAvgVolAllShapes);
             this.Controls.Add(this.btnGetSelectedShape);
             this.Controls.Add(this.cboShapeNames);
@@ -201,6 +213,7 @@
         private System.Windows.Forms.ComboBox cboShapeNames;
         private System.Windows.Forms.Button btnGetSelectedShape;
         private System.Windows.Forms.Button btnComputeAvgVolAllShapes;
+        private System.Windows.Forms.Button btnGetVolumeByShapeName;
     }
 }
 
