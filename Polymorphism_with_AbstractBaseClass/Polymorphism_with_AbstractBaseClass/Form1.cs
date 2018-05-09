@@ -21,7 +21,6 @@ namespace Polymorphism_with_AbstractBaseClass
             //The statement causes a compiler error
 
             //Cannot create an instance of an abstract class
-
         }
 
         private void btnCreateCircle_Click(object sender, EventArgs e)
@@ -41,10 +40,8 @@ namespace Polymorphism_with_AbstractBaseClass
             Random rand = new Random();
             double radius = rand.Next(2, 20) + rand.NextDouble();
             double height = rand.Next(3, 30) + rand.NextDouble();
-
             //create a Cylinder object
             Cylinder cylinder = new Cylinder(radius, height);
-
             //save
             circularShapesList.Add(cylinder);
             //display

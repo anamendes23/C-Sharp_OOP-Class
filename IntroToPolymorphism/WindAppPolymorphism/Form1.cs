@@ -88,10 +88,7 @@ namespace WindAppPolymorphism
             //cause the listview1 to scroll down automatically
             //by making the last item visible
             listView1.EnsureVisible(listView1.Items.Count - 1);
-
-
         }
-
     }
 }
 ///

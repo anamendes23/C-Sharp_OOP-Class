@@ -41,6 +41,11 @@ namespace InterfaceLib
         {
             return 0;
         }
+
+        public override string ToString()
+        {
+            return $"Circle - Radius: {R:f3} Area: {Area():f3} Peri: {Perimeter():f3} Vol: {Volume():f3}";
+        }
     }
 }
 ///TO DO:
