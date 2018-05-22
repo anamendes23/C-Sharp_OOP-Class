@@ -37,6 +37,10 @@
             this.BtnNumOfOccurences = new System.Windows.Forms.Button();
             this.BtnCountLetters = new System.Windows.Forms.Button();
             this.BtnCountDigitsPunctuations = new System.Windows.Forms.Button();
+            this.BtnCountUpperCase = new System.Windows.Forms.Button();
+            this.BtnIndexFirstSpace = new System.Windows.Forms.Button();
+            this.BtnIndexSecondSpace = new System.Windows.Forms.Button();
+            this.BtnReplaceFirstSpace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -113,11 +117,55 @@
             this.BtnCountDigitsPunctuations.UseVisualStyleBackColor = true;
             this.BtnCountDigitsPunctuations.Click += new System.EventHandler(this.BtnCountDigitsPunctuations_Click);
             // 
+            // BtnCountUpperCase
+            // 
+            this.BtnCountUpperCase.Location = new System.Drawing.Point(776, 359);
+            this.BtnCountUpperCase.Name = "BtnCountUpperCase";
+            this.BtnCountUpperCase.Size = new System.Drawing.Size(335, 52);
+            this.BtnCountUpperCase.TabIndex = 8;
+            this.BtnCountUpperCase.Text = "Count the upper case characters";
+            this.BtnCountUpperCase.UseVisualStyleBackColor = true;
+            this.BtnCountUpperCase.Click += new System.EventHandler(this.BtnCountUpperCase_Click);
+            // 
+            // BtnIndexFirstSpace
+            // 
+            this.BtnIndexFirstSpace.Location = new System.Drawing.Point(776, 434);
+            this.BtnIndexFirstSpace.Name = "BtnIndexFirstSpace";
+            this.BtnIndexFirstSpace.Size = new System.Drawing.Size(335, 52);
+            this.BtnIndexFirstSpace.TabIndex = 9;
+            this.BtnIndexFirstSpace.Text = "Index of First Space";
+            this.BtnIndexFirstSpace.UseVisualStyleBackColor = true;
+            this.BtnIndexFirstSpace.Click += new System.EventHandler(this.BtnIndexFirstSpace_Click);
+            // 
+            // BtnIndexSecondSpace
+            // 
+            this.BtnIndexSecondSpace.Location = new System.Drawing.Point(776, 504);
+            this.BtnIndexSecondSpace.Name = "BtnIndexSecondSpace";
+            this.BtnIndexSecondSpace.Size = new System.Drawing.Size(335, 52);
+            this.BtnIndexSecondSpace.TabIndex = 10;
+            this.BtnIndexSecondSpace.Text = "Index of Second Space";
+            this.BtnIndexSecondSpace.UseVisualStyleBackColor = true;
+            this.BtnIndexSecondSpace.Click += new System.EventHandler(this.BtnIndexSecondSpace_Click);
+            // 
+            // BtnReplaceFirstSpace
+            // 
+            this.BtnReplaceFirstSpace.Location = new System.Drawing.Point(776, 567);
+            this.BtnReplaceFirstSpace.Name = "BtnReplaceFirstSpace";
+            this.BtnReplaceFirstSpace.Size = new System.Drawing.Size(335, 52);
+            this.BtnReplaceFirstSpace.TabIndex = 11;
+            this.BtnReplaceFirstSpace.Text = "Replace First Space";
+            this.BtnReplaceFirstSpace.UseVisualStyleBackColor = true;
+            this.BtnReplaceFirstSpace.Click += new System.EventHandler(this.BtnReplaceFirstSpace_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 624);
+            this.Controls.Add(this.BtnReplaceFirstSpace);
+            this.Controls.Add(this.BtnIndexSecondSpace);
+            this.Controls.Add(this.BtnIndexFirstSpace);
+            this.Controls.Add(this.BtnCountUpperCase);
             this.Controls.Add(this.BtnCountDigitsPunctuations);
             this.Controls.Add(this.BtnCountLetters);
             this.Controls.Add(this.BtnNumOfOccurences);
@@ -143,6 +191,10 @@
         private System.Windows.Forms.Button BtnNumOfOccurences;
         private System.Windows.Forms.Button BtnCountLetters;
         private System.Windows.Forms.Button BtnCountDigitsPunctuations;
+        private System.Windows.Forms.Button BtnCountUpperCase;
+        private System.Windows.Forms.Button BtnIndexFirstSpace;
+        private System.Windows.Forms.Button BtnIndexSecondSpace;
+        private System.Windows.Forms.Button BtnReplaceFirstSpace;
     }
 }
 
