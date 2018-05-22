@@ -64,7 +64,13 @@ namespace ReadWriteBinaryFile
                 decimal price = decimal.Parse(txtPrice.Text);
 
                 //create a car object
-                Car car = new Car { Make = make, Model = model, Year = year, Mileage = mileage, Price = price };
+                Car car = new Car {
+                    Make = make,
+                    Model = model,
+                    Year = year,
+                    Mileage = mileage,
+                    Price = price
+                };
                 //save to the list
                 carList.Add(car);
 
@@ -116,7 +122,7 @@ namespace ReadWriteBinaryFile
                     decimal price = br.ReadDecimal();
                     //display to the richtextbox1
                     richTextBox1.AppendText(
-                        $"{make}  {model}  {year}  {mileage}  {price:c}");
+                        $"{make}  {model}  {year}  {mileage}  {price:c} \n");
                 }
             }
             catch (FileNotFoundException fne)
@@ -130,8 +136,8 @@ namespace ReadWriteBinaryFile
             }
             finally
             {
-                fs.Close();
-                br.Close();
+                if (fs != null) fs.Close();
+                if (br != null) br.Close();
             }
         }
 
@@ -170,23 +176,46 @@ namespace ReadWriteBinaryFile
             finally
             {
                 //3. close streams
-                fs.Close();
-                bw.Close();
+                if (fs != null) fs.Close();
+                if (bw != null) bw.Close();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //reload the carList with cars from the file listFilePath
+            FileStream fs = null;
+            BinaryReader br = null;
             try
             {
                 //1: open file for reading
                 //      and create a binaryreader
-
-                //read the file
+                fs = new FileStream(listFilePath, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                //2. read the file
                 //  read each car data, create a car object
                 //  and save it to the list
+                while (br.BaseStream.Position != br.BaseStream.Length)
+                {
+                    //read each car data, create a car object
+                    //and save it to the carlist
+                    //read data in the same order it was written
+                    string make = br.ReadString();
+                    string model = br.ReadString();
+                    int year = br.ReadInt32();
+                    int mileage = br.ReadInt32();
+                    decimal price = br.ReadDecimal();
 
+                    Car car = new Car
+                    {
+                        Make = make,
+                        Model = model,
+                        Year = year,
+                        Mileage = mileage,
+                        Price = price
+                    };
+                    carList.Add(car);
+                }
             }
             catch(FileNotFoundException fne)
             {
@@ -199,6 +228,8 @@ namespace ReadWriteBinaryFile
             finally
             {
                 //3. close the strem
+                if (fs != null) fs.Close();
+                if (br != null) br.Close();
             }
         }
     }

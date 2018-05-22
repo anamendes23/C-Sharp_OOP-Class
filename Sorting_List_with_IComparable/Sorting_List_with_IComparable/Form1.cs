@@ -83,10 +83,9 @@ namespace Sorting_List_with_IComparable
             foreach (Account acc in accList)
             {
                 ListViewItem row = new ListViewItem(
-                    new String[]
-                    {
-                        acc.AccNumber.ToString(), acc.Balance.ToString("c"), acc.DateCreated.ToShortDateString()
-                    });
+                    new String[] { acc.AccNumber.ToString(),
+                        acc.Balance.ToString("c"),
+                        acc.DateCreated.ToShortDateString() });
 
                 listView1.Items.Add(row);
             }
