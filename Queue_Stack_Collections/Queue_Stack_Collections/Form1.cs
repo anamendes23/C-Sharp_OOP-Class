@@ -17,13 +17,16 @@ namespace Queue_Stack_Collections
 {
     public partial class Form1 : Form
     {
+        //----------------------------GLOBALS---------------------------
         Queue<int> queue1 = new Queue<int>(50);
+        Queue<int> queue2 = new Queue<int>(50);
+        Queue<int> queue3 = new Queue<int>(100);
 
         public Form1()
         {
             InitializeComponent();
         }
-
+        //----------------------------EVENTS----------------------------
         private void BtnEnqueueValue_Click(object sender, EventArgs e)
         {
             //add value from textbox
@@ -62,7 +65,86 @@ namespace Queue_Stack_Collections
             //display queue1
             Display(queue1);
         }
-        //helper methods
+
+        private void BtnPeek_Click(object sender, EventArgs e)
+        {
+            //use the Peek method, which returns the first object in line
+            //without removing it
+            int x = queue1.Peek();
+            //display the removed value
+            MessageBox.Show($"First item is: {x}");
+            //display queue1
+            Display(queue1);
+        }
+
+        private void BtnRemoveOdds_Click(object sender, EventArgs e)
+        {
+            RemoveOdds(queue1);
+            Display(queue1);
+        }
+
+        private void BtnEnqueueValue2_Click(object sender, EventArgs e)
+        {
+            //add value from textbox
+            try
+            {
+                int value = int.Parse(txtAddValue.Text);
+                //use Enqueue method to add to the back of the queue
+                queue2.Enqueue(value);
+                //display to see the outcome
+                Display(queue2);
+                //optional
+                txtAddValue.Focus();
+                txtAddValue.SelectAll();
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+        }
+
+        private void BtnEnqueueRandomValue2_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int x = rand.Next(-999, 1000);
+            queue2.Enqueue(x);
+            Display(queue2);
+        }
+
+        private void BtnDequeue2_Click(object sender, EventArgs e)
+        {
+            //use the Dequeue method, which removes and returns the
+            //first object in line
+            int x = queue2.Dequeue();
+            //display the removed value
+            MessageBox.Show($"Item dequeued: {x}");
+            //display queue2
+            Display(queue2);
+        }
+
+        private void BtnPeek2_Click(object sender, EventArgs e)
+        {
+            //use the Peek method, which returns the first object in line
+            //without removing it
+            int x = queue2.Peek();
+            //display the removed value
+            MessageBox.Show($"First item is: {x}");
+            //display queue2
+            Display(queue2);
+        }
+
+        private void BtnRemoveOdds2_Click(object sender, EventArgs e)
+        {
+            RemoveOdds(queue2);
+            Display(queue2);
+        }
+
+        private void BtnMerge_Click(object sender, EventArgs e)
+        {
+            queue3 = SimpleMerge(queue1, queue2);
+            Display(queue3);
+        }
+        //----------------------------METHODS----------------------------
         private void Display(Queue<int> queue)
         {
             //display in listbox1
@@ -72,7 +154,41 @@ namespace Queue_Stack_Collections
                 listBox1.Items.Add(x);
                 //scroll down
                 listBox1.TopIndex = listBox1.Items.Count - 1;
-            }                
+            }
+        }
+
+        private Queue<int> SimpleMerge(Queue<int> queue1, Queue<int> queue2)
+        {
+            Queue<int> queue3 = new Queue<int>(100);
+
+            while(queue1.Count != 0 || queue2.Count != 0)
+            {
+                if(queue1.Count != 0)
+                {
+                    int x = queue1.Dequeue();
+                    queue3.Enqueue(x);
+                }
+
+                if (queue2.Count != 0)
+                {
+                    int x = queue2.Dequeue();
+                    queue3.Enqueue(x);
+                }
+            }
+
+            return queue3;
+        }
+
+        private void RemoveOdds(Queue<int> queue)
+        {
+            int[] intArray = queue.ToArray();
+            queue.Clear();
+
+            foreach (int number in intArray)
+            {
+                if (number % 2 == 0)
+                    queue.Enqueue(number);
+            }
         }
     }
 }
