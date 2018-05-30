@@ -22,11 +22,14 @@ namespace Queue_Stack_Collections
         Queue<int> queue2 = new Queue<int>(50);
         Queue<int> queue3 = new Queue<int>(100);
 
+        Stack<int> stack1 = new Stack<int>(50);
+
         public Form1()
         {
             InitializeComponent();
         }
         //----------------------------EVENTS----------------------------
+        //----------------------------QUEUE-----------------------------
         private void BtnEnqueueValue_Click(object sender, EventArgs e)
         {
             //add value from textbox
@@ -59,11 +62,16 @@ namespace Queue_Stack_Collections
         {
             //use the Dequeue method, which removes and returns the
             //first object in line
-            int x = queue1.Dequeue();
-            //display the removed value
-            MessageBox.Show($"Item dequeued: {x}");
-            //display queue1
-            Display(queue1);
+            if(queue1.Count > 0)
+            {
+                int x = queue1.Dequeue();
+                //display the removed value
+                MessageBox.Show($"Item dequeued: {x}");
+                //display queue1
+                Display(queue1);
+            }            
+            else
+                MessageBox.Show("Illegal Operation: queue is empty");
         }
 
         private void BtnPeek_Click(object sender, EventArgs e)
@@ -115,11 +123,16 @@ namespace Queue_Stack_Collections
         {
             //use the Dequeue method, which removes and returns the
             //first object in line
-            int x = queue2.Dequeue();
-            //display the removed value
-            MessageBox.Show($"Item dequeued: {x}");
-            //display queue2
-            Display(queue2);
+            if (queue2.Count > 0)
+            {
+                int x = queue2.Dequeue();
+                //display the removed value
+                MessageBox.Show($"Item dequeued: {x}");
+                //display queue2
+                Display(queue2);
+            }
+            else
+                MessageBox.Show("Illegal Operation: queue is empty");
         }
 
         private void BtnPeek2_Click(object sender, EventArgs e)
@@ -144,6 +157,52 @@ namespace Queue_Stack_Collections
             queue3 = SimpleMerge(queue1, queue2);
             Display(queue3);
         }
+        //----------------------------STACK-----------------------------
+        private void BtnPush_Click(object sender, EventArgs e)
+        {
+            //add new value to the top of the stack
+            try
+            {
+                int value = int.Parse(txtStackAddValue.Text);
+                //use Push method to add to the top of the stack
+                stack1.Push(value);
+                //display to see the outcome
+                Display(stack1);
+                //optional
+                txtStackAddValue.Focus();
+                txtStackAddValue.SelectAll();
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+
+        }
+
+        private void BtnPushRandomValue_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int x = rand.Next(-999, 1000);
+            stack1.Push(x);
+            Display(stack1);
+        }
+
+        private void BtnPop_Click(object sender, EventArgs e)
+        {
+            //pop a value from the stack
+            //the value at the top of the stack is removed and
+            //returned
+            if (stack1.Count > 0)
+            {
+                int x = stack1.Pop();
+                //display the removed value
+                MessageBox.Show($"{x} was popped out of the stack");
+                //display stack1
+                Display(stack1);
+            }
+            else
+                MessageBox.Show("Illegal Operation: stack is empty");
+        }
         //----------------------------METHODS----------------------------
         private void Display(Queue<int> queue)
         {
@@ -157,6 +216,18 @@ namespace Queue_Stack_Collections
             }
         }
 
+        private void Display(Stack<int> stack)
+        {
+            //display in listbox2
+            listBox2.Items.Clear();
+            foreach (int x in stack)
+            {
+                listBox2.Items.Add(x);
+                //scroll down
+                listBox2.TopIndex = listBox2.Items.Count - 1;
+            }
+        }
+
         private Queue<int> SimpleMerge(Queue<int> queue1, Queue<int> queue2)
         {
             Queue<int> queue3 = new Queue<int>(100);
@@ -164,7 +235,8 @@ namespace Queue_Stack_Collections
             while(queue1.Count != 0 || queue2.Count != 0)
             {
                 if(queue1.Count != 0)
-                {
+                if(queue1.Count != 0)
+                    {
                     int x = queue1.Dequeue();
                     queue3.Enqueue(x);
                 }
@@ -204,3 +276,14 @@ namespace Queue_Stack_Collections
 ///     only the odd values while maintaining the rest in their
 ///     original sequence
 ///     have a button that calls this method and display the queue again
+///     
+///Exercise
+///Define a method that takes 2 stacks and merge them
+///(don't assume that both stacks have the same number of items)
+///
+///define a method "ConvertStackToQueue" that takes a stack and returns a queue with
+///all the items from the stack
+///
+///Reverse a stack using another stack
+///
+///Remove all the odd values from a stack while maintaining the same original sequence
