@@ -152,7 +152,7 @@ namespace ReadWriteBinaryFile
                 if(File.Exists(listFilePath))
                 {
                     //delete file if it exists
-                    Directory.Delete(listFilePath);
+                    File.Delete(listFilePath);
                 }
                 //1. Open file for appending
                 fs = new FileStream(listFilePath, FileMode.Append, FileAccess.Write);

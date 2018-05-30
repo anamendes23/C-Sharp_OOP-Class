@@ -41,6 +41,12 @@
             this.BtnIndexFirstSpace = new System.Windows.Forms.Button();
             this.BtnIndexSecondSpace = new System.Windows.Forms.Button();
             this.BtnReplaceFirstSpace = new System.Windows.Forms.Button();
+            this.BtnSplit = new System.Windows.Forms.Button();
+            this.BtnSwap = new System.Windows.Forms.Button();
+            this.BtnReplaceBlanks = new System.Windows.Forms.Button();
+            this.BtnUppercaseFirst = new System.Windows.Forms.Button();
+            this.BtnGetVowels = new System.Windows.Forms.Button();
+            this.BtnGetIndexFirstVowel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -157,11 +163,77 @@
             this.BtnReplaceFirstSpace.UseVisualStyleBackColor = true;
             this.BtnReplaceFirstSpace.Click += new System.EventHandler(this.BtnReplaceFirstSpace_Click);
             // 
+            // BtnSplit
+            // 
+            this.BtnSplit.Location = new System.Drawing.Point(425, 567);
+            this.BtnSplit.Name = "BtnSplit";
+            this.BtnSplit.Size = new System.Drawing.Size(335, 52);
+            this.BtnSplit.TabIndex = 12;
+            this.BtnSplit.Text = "Split(char[] separator)";
+            this.BtnSplit.UseVisualStyleBackColor = true;
+            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
+            // 
+            // BtnSwap
+            // 
+            this.BtnSwap.Location = new System.Drawing.Point(425, 504);
+            this.BtnSwap.Name = "BtnSwap";
+            this.BtnSwap.Size = new System.Drawing.Size(335, 52);
+            this.BtnSwap.TabIndex = 13;
+            this.BtnSwap.Text = "Swap First and Last Words";
+            this.BtnSwap.UseVisualStyleBackColor = true;
+            this.BtnSwap.Click += new System.EventHandler(this.BtnSwap_Click);
+            // 
+            // BtnReplaceBlanks
+            // 
+            this.BtnReplaceBlanks.Location = new System.Drawing.Point(425, 434);
+            this.BtnReplaceBlanks.Name = "BtnReplaceBlanks";
+            this.BtnReplaceBlanks.Size = new System.Drawing.Size(335, 52);
+            this.BtnReplaceBlanks.TabIndex = 14;
+            this.BtnReplaceBlanks.Text = "Replace all Blanks with \'--\'";
+            this.BtnReplaceBlanks.UseVisualStyleBackColor = true;
+            this.BtnReplaceBlanks.Click += new System.EventHandler(this.BtnReplaceBlanks_Click);
+            // 
+            // BtnUppercaseFirst
+            // 
+            this.BtnUppercaseFirst.Location = new System.Drawing.Point(425, 359);
+            this.BtnUppercaseFirst.Name = "BtnUppercaseFirst";
+            this.BtnUppercaseFirst.Size = new System.Drawing.Size(335, 52);
+            this.BtnUppercaseFirst.TabIndex = 15;
+            this.BtnUppercaseFirst.Text = "Uppercase First Letter";
+            this.BtnUppercaseFirst.UseVisualStyleBackColor = true;
+            this.BtnUppercaseFirst.Click += new System.EventHandler(this.BtnUppercaseFirst_Click);
+            // 
+            // BtnGetVowels
+            // 
+            this.BtnGetVowels.Location = new System.Drawing.Point(425, 283);
+            this.BtnGetVowels.Name = "BtnGetVowels";
+            this.BtnGetVowels.Size = new System.Drawing.Size(335, 52);
+            this.BtnGetVowels.TabIndex = 16;
+            this.BtnGetVowels.Text = "Get Number of Vowels";
+            this.BtnGetVowels.UseVisualStyleBackColor = true;
+            this.BtnGetVowels.Click += new System.EventHandler(this.BtnGetVowels_Click);
+            // 
+            // BtnGetIndexFirstVowel
+            // 
+            this.BtnGetIndexFirstVowel.Location = new System.Drawing.Point(425, 207);
+            this.BtnGetIndexFirstVowel.Name = "BtnGetIndexFirstVowel";
+            this.BtnGetIndexFirstVowel.Size = new System.Drawing.Size(335, 52);
+            this.BtnGetIndexFirstVowel.TabIndex = 17;
+            this.BtnGetIndexFirstVowel.Text = "Get Index of First Vowel";
+            this.BtnGetIndexFirstVowel.UseVisualStyleBackColor = true;
+            this.BtnGetIndexFirstVowel.Click += new System.EventHandler(this.BtnGetIndexFirstVowel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 624);
+            this.Controls.Add(this.BtnGetIndexFirstVowel);
+            this.Controls.Add(this.BtnGetVowels);
+            this.Controls.Add(this.BtnUppercaseFirst);
+            this.Controls.Add(this.BtnReplaceBlanks);
+            this.Controls.Add(this.BtnSwap);
+            this.Controls.Add(this.BtnSplit);
             this.Controls.Add(this.BtnReplaceFirstSpace);
             this.Controls.Add(this.BtnIndexSecondSpace);
             this.Controls.Add(this.BtnIndexFirstSpace);
@@ -195,6 +267,12 @@
         private System.Windows.Forms.Button BtnIndexFirstSpace;
         private System.Windows.Forms.Button BtnIndexSecondSpace;
         private System.Windows.Forms.Button BtnReplaceFirstSpace;
+        private System.Windows.Forms.Button BtnSplit;
+        private System.Windows.Forms.Button BtnSwap;
+        private System.Windows.Forms.Button BtnReplaceBlanks;
+        private System.Windows.Forms.Button BtnUppercaseFirst;
+        private System.Windows.Forms.Button BtnGetVowels;
+        private System.Windows.Forms.Button BtnGetIndexFirstVowel;
     }
 }
 
