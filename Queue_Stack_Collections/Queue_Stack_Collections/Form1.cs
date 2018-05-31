@@ -230,23 +230,38 @@ namespace Queue_Stack_Collections
 
         private Queue<int> SimpleMerge(Queue<int> queue1, Queue<int> queue2)
         {
-            Queue<int> queue3 = new Queue<int>(100);
+            //this part merges two queues and sort elements into a third queue
 
-            while(queue1.Count != 0 || queue2.Count != 0)
-            {
-                if(queue1.Count != 0)
-                if(queue1.Count != 0)
-                    {
-                    int x = queue1.Dequeue();
-                    queue3.Enqueue(x);
-                }
+            int[] array1 = queue1.ToArray();
+            int[] array2 = queue2.ToArray();
+            int[] array3 = new int[array1.Length + array2.Length];
 
-                if (queue2.Count != 0)
-                {
-                    int x = queue2.Dequeue();
-                    queue3.Enqueue(x);
-                }
-            }
+            Array.Copy(array1, array3, array1.Length);
+            Array.Copy(array2, 0, array3, array1.Length, array2.Length);
+
+            Array.Sort(array3);
+
+            Queue<int> queue3 = new Queue<int>(array3);
+
+            //this part merges two queues alternating the elements from queue1
+            //and queue2 and add them to a third queue3
+
+            //Queue<int> queue1Holder = new Queue<int>(queue1);
+            //Queue<int> queue2Holder = new Queue<int>(queue2);
+
+            //while (queue1Holder.Count != 0 || queue2Holder.Count != 0)
+            //{
+            //    if (queue1Holder.Count != 0)
+            //    {
+            //        int x = queue1Holder.Dequeue();
+            //        queue3.Enqueue(x);
+            //    }
+            //    if (queue2Holder.Count != 0)
+            //    {
+            //        int x = queue2Holder.Dequeue();
+            //        queue3.Enqueue(x);
+            //    }
+            //}
 
             return queue3;
         }
