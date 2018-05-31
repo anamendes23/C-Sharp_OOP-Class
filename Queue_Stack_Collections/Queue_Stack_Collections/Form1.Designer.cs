@@ -47,16 +47,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnRemoveOddsStack2 = new System.Windows.Forms.Button();
+            this.BtnRemoveOddsStack = new System.Windows.Forms.Button();
+            this.BtnMergeStacks = new System.Windows.Forms.Button();
+            this.BtnReverse2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.BtnPop2 = new System.Windows.Forms.Button();
+            this.BtnPushRandomValue2 = new System.Windows.Forms.Button();
+            this.BtnPush2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.BtnReverse = new System.Windows.Forms.Button();
             this.BtnPop = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.BtnPushRandomValue = new System.Windows.Forms.Button();
@@ -64,6 +64,8 @@
             this.txtStackAddValue = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.BtnConvertStackToQueue2 = new System.Windows.Forms.Button();
+            this.BtnConvertStackToQueue = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -258,16 +260,18 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.BtnConvertStackToQueue2);
+            this.panel2.Controls.Add(this.BtnConvertStackToQueue);
+            this.panel2.Controls.Add(this.BtnRemoveOddsStack2);
+            this.panel2.Controls.Add(this.BtnRemoveOddsStack);
+            this.panel2.Controls.Add(this.BtnMergeStacks);
+            this.panel2.Controls.Add(this.BtnReverse2);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.BtnPop2);
+            this.panel2.Controls.Add(this.BtnPushRandomValue2);
+            this.panel2.Controls.Add(this.BtnPush2);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.button8);
+            this.panel2.Controls.Add(this.BtnReverse);
             this.panel2.Controls.Add(this.BtnPop);
             this.panel2.Controls.Add(this.listBox2);
             this.panel2.Controls.Add(this.BtnPushRandomValue);
@@ -280,99 +284,107 @@
             this.panel2.Size = new System.Drawing.Size(744, 441);
             this.panel2.TabIndex = 1;
             // 
-            // button1
+            // BtnRemoveOddsStack2
             // 
-            this.button1.Location = new System.Drawing.Point(243, 337);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 39);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Remove Odds :(";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnRemoveOddsStack2.Location = new System.Drawing.Point(243, 292);
+            this.BtnRemoveOddsStack2.Name = "BtnRemoveOddsStack2";
+            this.BtnRemoveOddsStack2.Size = new System.Drawing.Size(197, 39);
+            this.BtnRemoveOddsStack2.TabIndex = 16;
+            this.BtnRemoveOddsStack2.Text = "Remove Odds :(";
+            this.BtnRemoveOddsStack2.UseVisualStyleBackColor = true;
+            this.BtnRemoveOddsStack2.Click += new System.EventHandler(this.BtnRemoveOddsStack2_Click);
             // 
-            // button2
+            // BtnRemoveOddsStack
             // 
-            this.button2.Location = new System.Drawing.Point(31, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 39);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Remove Odds :(";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnRemoveOddsStack.Location = new System.Drawing.Point(31, 292);
+            this.BtnRemoveOddsStack.Name = "BtnRemoveOddsStack";
+            this.BtnRemoveOddsStack.Size = new System.Drawing.Size(197, 39);
+            this.BtnRemoveOddsStack.TabIndex = 15;
+            this.BtnRemoveOddsStack.Text = "Remove Odds :(";
+            this.BtnRemoveOddsStack.UseVisualStyleBackColor = true;
+            this.BtnRemoveOddsStack.Click += new System.EventHandler(this.BtnRemoveOddsStack_Click);
             // 
-            // button3
+            // BtnMergeStacks
             // 
-            this.button3.Location = new System.Drawing.Point(104, 384);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(281, 39);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "MEEEEEEEERGE";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnMergeStacks.Location = new System.Drawing.Point(104, 384);
+            this.BtnMergeStacks.Name = "BtnMergeStacks";
+            this.BtnMergeStacks.Size = new System.Drawing.Size(281, 39);
+            this.BtnMergeStacks.TabIndex = 14;
+            this.BtnMergeStacks.Text = "MEEEEEEEERGE";
+            this.BtnMergeStacks.UseVisualStyleBackColor = true;
+            this.BtnMergeStacks.Click += new System.EventHandler(this.BtnMergeStacks_Click);
             // 
-            // button4
+            // BtnReverse2
             // 
-            this.button4.Location = new System.Drawing.Point(243, 292);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 39);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Peek";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnReverse2.Location = new System.Drawing.Point(243, 247);
+            this.BtnReverse2.Name = "BtnReverse2";
+            this.BtnReverse2.Size = new System.Drawing.Size(197, 39);
+            this.BtnReverse2.TabIndex = 13;
+            this.BtnReverse2.Text = "Reverse";
+            this.BtnReverse2.UseVisualStyleBackColor = true;
+            this.BtnReverse2.Click += new System.EventHandler(this.BtnReverse2_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(315, 124);
+            this.label5.Location = new System.Drawing.Point(315, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 20);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Queue 2";
+            this.label5.Text = "Stack 2";
             // 
-            // button5
+            // BtnPop2
             // 
-            this.button5.Location = new System.Drawing.Point(243, 247);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(197, 39);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "DeQueue";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BtnPop2.Location = new System.Drawing.Point(243, 202);
+            this.BtnPop2.Name = "BtnPop2";
+            this.BtnPop2.Size = new System.Drawing.Size(197, 39);
+            this.BtnPop2.TabIndex = 11;
+            this.BtnPop2.Text = "Pop";
+            this.BtnPop2.UseVisualStyleBackColor = true;
+            this.BtnPop2.Click += new System.EventHandler(this.BtnPop2_Click);
             // 
-            // button6
+            // BtnPushRandomValue2
             // 
-            this.button6.Location = new System.Drawing.Point(243, 202);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(197, 39);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "EnQueue Random Value";
-            this.button6.UseVisualStyleBackColor = true;
+            this.BtnPushRandomValue2.Location = new System.Drawing.Point(243, 157);
+            this.BtnPushRandomValue2.Name = "BtnPushRandomValue2";
+            this.BtnPushRandomValue2.Size = new System.Drawing.Size(197, 39);
+            this.BtnPushRandomValue2.TabIndex = 10;
+            this.BtnPushRandomValue2.Text = "Push Random Value";
+            this.BtnPushRandomValue2.UseVisualStyleBackColor = true;
+            this.BtnPushRandomValue2.Click += new System.EventHandler(this.BtnPushRandomValue2_Click);
             // 
-            // button7
+            // BtnPush2
             // 
-            this.button7.Location = new System.Drawing.Point(243, 157);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(197, 39);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "EnQueue";
-            this.button7.UseVisualStyleBackColor = true;
+            this.BtnPush2.Location = new System.Drawing.Point(243, 112);
+            this.BtnPush2.Name = "BtnPush2";
+            this.BtnPush2.Size = new System.Drawing.Size(197, 39);
+            this.BtnPush2.TabIndex = 9;
+            this.BtnPush2.Text = "Push";
+            this.BtnPush2.UseVisualStyleBackColor = true;
+            this.BtnPush2.Click += new System.EventHandler(this.BtnPush2_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(103, 124);
+            this.label6.Location = new System.Drawing.Point(103, 79);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 20);
+            this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Queue 1";
+            this.label6.Text = "Stack 1";
             // 
-            // button8
+            // BtnReverse
             // 
-            this.button8.Location = new System.Drawing.Point(31, 292);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(197, 39);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Peek";
-            this.button8.UseVisualStyleBackColor = true;
+            this.BtnReverse.Location = new System.Drawing.Point(31, 247);
+            this.BtnReverse.Name = "BtnReverse";
+            this.BtnReverse.Size = new System.Drawing.Size(197, 39);
+            this.BtnReverse.TabIndex = 7;
+            this.BtnReverse.Text = "Reverse";
+            this.BtnReverse.UseVisualStyleBackColor = true;
+            this.BtnReverse.Click += new System.EventHandler(this.BtnReverse_Click);
             // 
             // BtnPop
             // 
-            this.BtnPop.Location = new System.Drawing.Point(31, 247);
+            this.BtnPop.Location = new System.Drawing.Point(31, 202);
             this.BtnPop.Name = "BtnPop";
             this.BtnPop.Size = new System.Drawing.Size(197, 39);
             this.BtnPop.TabIndex = 6;
@@ -391,7 +403,7 @@
             // 
             // BtnPushRandomValue
             // 
-            this.BtnPushRandomValue.Location = new System.Drawing.Point(31, 202);
+            this.BtnPushRandomValue.Location = new System.Drawing.Point(31, 157);
             this.BtnPushRandomValue.Name = "BtnPushRandomValue";
             this.BtnPushRandomValue.Size = new System.Drawing.Size(197, 39);
             this.BtnPushRandomValue.TabIndex = 4;
@@ -401,7 +413,7 @@
             // 
             // BtnPush
             // 
-            this.BtnPush.Location = new System.Drawing.Point(31, 157);
+            this.BtnPush.Location = new System.Drawing.Point(31, 112);
             this.BtnPush.Name = "BtnPush";
             this.BtnPush.Size = new System.Drawing.Size(197, 39);
             this.BtnPush.TabIndex = 3;
@@ -411,7 +423,7 @@
             // 
             // txtStackAddValue
             // 
-            this.txtStackAddValue.Location = new System.Drawing.Point(104, 81);
+            this.txtStackAddValue.Location = new System.Drawing.Point(104, 47);
             this.txtStackAddValue.Name = "txtStackAddValue";
             this.txtStackAddValue.Size = new System.Drawing.Size(124, 26);
             this.txtStackAddValue.TabIndex = 2;
@@ -419,7 +431,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 81);
+            this.label7.Location = new System.Drawing.Point(36, 47);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 20);
             this.label7.TabIndex = 1;
@@ -428,11 +440,31 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 31);
+            this.label8.Location = new System.Drawing.Point(36, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Stack Collection";
+            // 
+            // BtnConvertStackToQueue2
+            // 
+            this.BtnConvertStackToQueue2.Location = new System.Drawing.Point(243, 337);
+            this.BtnConvertStackToQueue2.Name = "BtnConvertStackToQueue2";
+            this.BtnConvertStackToQueue2.Size = new System.Drawing.Size(197, 39);
+            this.BtnConvertStackToQueue2.TabIndex = 18;
+            this.BtnConvertStackToQueue2.Text = "Convert to Queue";
+            this.BtnConvertStackToQueue2.UseVisualStyleBackColor = true;
+            this.BtnConvertStackToQueue2.Click += new System.EventHandler(this.BtnConvertStackToQueue2_Click);
+            // 
+            // BtnConvertStackToQueue
+            // 
+            this.BtnConvertStackToQueue.Location = new System.Drawing.Point(31, 337);
+            this.BtnConvertStackToQueue.Name = "BtnConvertStackToQueue";
+            this.BtnConvertStackToQueue.Size = new System.Drawing.Size(197, 39);
+            this.BtnConvertStackToQueue.TabIndex = 17;
+            this.BtnConvertStackToQueue.Text = "Convert to Queue";
+            this.BtnConvertStackToQueue.UseVisualStyleBackColor = true;
+            this.BtnConvertStackToQueue.Click += new System.EventHandler(this.BtnConvertStackToQueue_Click);
             // 
             // Form1
             // 
@@ -473,16 +505,16 @@
         private System.Windows.Forms.Button BtnRemoveOdds;
         private System.Windows.Forms.Button BtnRemoveOdds2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnRemoveOddsStack2;
+        private System.Windows.Forms.Button BtnRemoveOddsStack;
+        private System.Windows.Forms.Button BtnMergeStacks;
+        private System.Windows.Forms.Button BtnReverse2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button BtnPop2;
+        private System.Windows.Forms.Button BtnPushRandomValue2;
+        private System.Windows.Forms.Button BtnPush2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BtnReverse;
         private System.Windows.Forms.Button BtnPop;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button BtnPushRandomValue;
@@ -490,6 +522,8 @@
         private System.Windows.Forms.TextBox txtStackAddValue;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button BtnConvertStackToQueue2;
+        private System.Windows.Forms.Button BtnConvertStackToQueue;
     }
 }
 

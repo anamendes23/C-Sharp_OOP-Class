@@ -23,6 +23,8 @@ namespace Queue_Stack_Collections
         Queue<int> queue3 = new Queue<int>(100);
 
         Stack<int> stack1 = new Stack<int>(50);
+        Stack<int> stack2 = new Stack<int>(50);
+        Stack<int> stack3 = new Stack<int>(100);
 
         public Form1()
         {
@@ -176,7 +178,6 @@ namespace Queue_Stack_Collections
             {
                 MessageBox.Show(fe.Message);
             }
-
         }
 
         private void BtnPushRandomValue_Click(object sender, EventArgs e)
@@ -202,6 +203,125 @@ namespace Queue_Stack_Collections
             }
             else
                 MessageBox.Show("Illegal Operation: stack is empty");
+        }
+
+        private void BtnReverse_Click(object sender, EventArgs e)
+        {
+            Stack<int> stackReverse = new Stack<int>(stack1.Count);
+            Stack<int> stackHolder = stack1;
+
+            while(stack1.Count > 0)
+            {
+                stackReverse.Push(stackHolder.Pop());
+            }
+
+            Display(stackReverse);
+        }
+
+        private void BtnRemoveOddsStack_Click(object sender, EventArgs e)
+        {
+            int[] arrayHolder = stack1.ToArray();
+            stack1.Clear();
+
+            for(int i = arrayHolder.Length - 1; i >= 0; i--)
+            {
+                if (arrayHolder[i] % 2 == 0)
+                    stack1.Push(arrayHolder[i]);
+            }
+
+            Display(stack1);
+        }
+
+        private void BtnConvertStackToQueue_Click(object sender, EventArgs e)
+        {
+            ConvertStackToQueue(stack1, queue1);
+            Display(stack1);
+            Display(queue1);
+        }
+
+        private void BtnPush2_Click(object sender, EventArgs e)
+        {
+            //add new value to the top of the stack
+            try
+            {
+                int value = int.Parse(txtStackAddValue.Text);
+                //use Push method to add to the top of the stack
+                stack2.Push(value);
+                //display to see the outcome
+                Display(stack2);
+                //optional
+                txtStackAddValue.Focus();
+                txtStackAddValue.SelectAll();
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+        }
+
+        private void BtnPushRandomValue2_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int x = rand.Next(-999, 1000);
+            stack2.Push(x);
+            Display(stack2);
+        }
+
+        private void BtnPop2_Click(object sender, EventArgs e)
+        {
+            //pop a value from the stack
+            //the value at the top of the stack is removed and
+            //returned
+            if (stack2.Count > 0)
+            {
+                int x = stack2.Pop();
+                //display the removed value
+                MessageBox.Show($"{x} was popped out of the stack");
+                //display stack1
+                Display(stack2);
+            }
+            else
+                MessageBox.Show("Illegal Operation: stack is empty");
+        }
+
+        private void BtnReverse2_Click(object sender, EventArgs e)
+        {
+            Stack<int> stackReverse = new Stack<int>(stack1.Count);
+            Stack<int> stackHolder = stack2;
+
+            while (stack2.Count > 0)
+            {
+                stackReverse.Push(stackHolder.Pop());
+            }
+
+            Display(stackReverse);
+        }
+
+        private void BtnRemoveOddsStack2_Click(object sender, EventArgs e)
+        {
+            int[] arrayHolder = stack2.ToArray();
+            stack2.Clear();
+
+            for (int i = arrayHolder.Length - 1; i >= 0; i--)
+            {
+                if (arrayHolder[i] % 2 == 0)
+                    stack2.Push(arrayHolder[i]);
+            }
+
+            Display(stack2);
+        }
+
+        private void BtnConvertStackToQueue2_Click(object sender, EventArgs e)
+        {
+            ConvertStackToQueue(stack2, queue2);
+            Display(stack2);
+            Display(queue2);
+        }
+
+        private void BtnMergeStacks_Click(object sender, EventArgs e)
+        {
+            stack3 = MergeStacks(stack1, stack2);
+            Display(stack3);
         }
         //----------------------------METHODS----------------------------
         private void Display(Queue<int> queue)
@@ -276,6 +396,36 @@ namespace Queue_Stack_Collections
                 if (number % 2 == 0)
                     queue.Enqueue(number);
             }
+        }
+
+        private void ConvertStackToQueue(Stack<int> stack, Queue<int> queue)
+        {
+            queue.Clear();
+            int[] arrayHolder = stack.ToArray();
+
+            foreach (int number in arrayHolder)
+            {
+                queue.Enqueue(number);
+            }
+        }
+
+        private Stack<int> MergeStacks(Stack<int> stack1, Stack<int> stack2)
+        {
+            Stack<int> stack3 = new Stack<int>(stack1.Count + stack2.Count);
+            int[] arrayHolder1 = stack1.ToArray();
+            int[] arrayHolder2 = stack2.ToArray();
+
+            int maxIndex = Math.Max(arrayHolder1.Length, arrayHolder2.Length);
+
+            for (int i = maxIndex - 1; i >= 0 ; i--)
+            {
+                if (i < arrayHolder1.Length)
+                    stack3.Push(arrayHolder1[i]);
+                if (i < arrayHolder2.Length)
+                    stack3.Push(arrayHolder2[i]);
+            }
+
+            return stack3;
         }
     }
 }
