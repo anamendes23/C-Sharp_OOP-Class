@@ -8,7 +8,7 @@ namespace Dictionary_Collection
 {
     public class Account
     {
-        private readonly int _accountNumber;
+        private int _accountNumber;
         private decimal _balance;
         private string _bank;
 
@@ -18,6 +18,11 @@ namespace Dictionary_Collection
             _balance = balance;
             _bank = bank;
         }
+
+        public int AccountNumber { get => _accountNumber; }
+        public decimal Balance { get => _balance; }
+        public string Bank { get => _bank; }
+
         //public int AccountNumber { get { return _accountNumber; } }
         public override string ToString()
         {
