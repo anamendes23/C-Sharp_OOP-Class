@@ -106,6 +106,33 @@ namespace Dictionary_Collection
                 MessageBox.Show(fe.Message);
             }
         }
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //get the key
+                int key = int.Parse(txtSearchKey.Text);
+                if (accountDictionary.ContainsKey(key))
+                {
+                    //add messagebox to send confirmation question
+                    DialogResult result = 
+                        MessageBox.Show(this, $"Are you sure you want to delete account number {key}?", "Confirmation", MessageBoxButtons.YesNo);
+                    if(result == DialogResult.Yes)
+                    {
+                        accountDictionary.Remove(key);
+                        MessageBox.Show("The account was removed.");
+                        Display(accountDictionary);
+                    }                    
+                }
+                else
+                    MessageBox.Show("No such account with the given key.");
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+        }
     }
 }
 //read about hash functions and hashtables

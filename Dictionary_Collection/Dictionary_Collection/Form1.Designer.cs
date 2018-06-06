@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchKey = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnRemove = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,15 +98,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnRemove);
             this.groupBox1.Controls.Add(this.BtnSearchKey);
             this.groupBox1.Controls.Add(this.txtSearchKey);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(756, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(249, 187);
+            this.groupBox1.Size = new System.Drawing.Size(249, 276);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "search";
+            // 
+            // BtnRemove
+            // 
+            this.BtnRemove.Location = new System.Drawing.Point(44, 191);
+            this.BtnRemove.Name = "BtnRemove";
+            this.BtnRemove.Size = new System.Drawing.Size(165, 57);
+            this.BtnRemove.TabIndex = 5;
+            this.BtnRemove.Text = "Remove Account";
+            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // Form1
             // 
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchKey;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BtnRemove;
     }
 }
 
