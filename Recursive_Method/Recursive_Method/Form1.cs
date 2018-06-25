@@ -49,7 +49,8 @@ namespace Recursive_Method
                 return; //exit this method---> stop recursive calls
             //display counter
             listBox1.Items.Add($"counter = {counter}");
-            //make a recursive call
+            //make a recursive call making sure that you are
+            //converging towards the base condition
             CountDown(/*--counter*/ counter-1);
         }
         //define a second recursive method that counts up from
@@ -94,47 +95,58 @@ namespace Recursive_Method
             richTextBox1.AppendText("\n");
         }
 
-        //define Graphics object for the panel
+        //define a graphics object
+        Random rand = new Random();
         Graphics g;
 
         private void BtnExample3_Click(object sender, EventArgs e)
         {
-            //crete it
+            //create graphics
             g = panel1.CreateGraphics();
-            //set up the initial radius to be the max possible given the
-            //panel size
-            //set R = half shortest width and height
-            int R = Math.Min(panel1.Width, panel1.Height);
+
+            //setup the initial radius to be the max possible given panel size
+            // set radius = half of the shortest width and height
+            int r = Math.Min(panel1.Width, panel1.Height);
             int xc = panel1.Width / 2;
             int yc = panel1.Height / 2;
 
-            DrawCircle(R, xc, yc);
+            DrawConcentricCircles(r, xc, yc);
             //call the recursive method
+            //DrawConcentricCircles(radius, xc, yc);
         }
         //define a method "drawCircle" that draws a circle with center set 
         //in the middle of the panel
         //(this method should have a single parameter radius)
         public void DrawCircle(int r, int xc, int yc)
         {
-            int x = xc - r;
-            int y = yc - r;
-            Pen pen = new Pen(Color.Red, 2);
-            g.DrawEllipse(pen, x, y, 2*r, 2*r);
+            Color color = Color.FromArgb(rand.Next(0, 256), rand.Next(0, 256), rand.Next(0, 256));
+            Pen p = new Pen(color, 2);
+
+            int x = xc - r / 2;
+            int y = yc - r / 2;
+
+            g.DrawEllipse(p, x, y, r, r);
+
+            //Rectangle rectangle = new Rectangle(0, 0, panel1.Width, panel1.Height);
+            //Pen pen = new Pen(Color.Red, 2);
+
+            //image.DrawEllipse(pen, rectangle);
         }
         //define a recursive method that calls the drawCircle to draw
         //another circle with smaller radius. Continue to process until
         //the smallest circle is about 5 pixels radius
-        private void DrawConcentrixCircles(int r, int xc, int yc)
+        private void DrawConcentricCircles(int r, int xc, int yc)
         {
-            //set up base
-            if (r < 5)
-                return;
+            g = panel1.CreateGraphics();
 
-            //call drawcircle
+            //base condition
+            if (r <= 5)
+                return;
+            //call DrawCircle
             DrawCircle(r, xc, yc);
-            //make recursive call for another inner circle
+            //make recursive
+            DrawConcentricCircles(r - 1, xc, yc);
         }
     }
 }
-///Exercise
 
